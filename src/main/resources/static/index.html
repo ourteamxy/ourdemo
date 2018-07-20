@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery.js"></script>
+    <script>
+        $(function(){
+        $.ajax({
+            url: '/searchUser',
+            type: 'get',
+            dataType: 'json',
+            success: function (data) {
+                $.each(data,function (index, item){
+                    var tr;
+                    tr = '<td>' + item.id + '</td>' + '<td>' + item.name + '</td>' + '<td>' + item.age + '</td>';
+                    $("#table").append('<tr>' + tr + '</tr>')
+                })
+            }
+        })
+    })
+    </script>
+</head>
+<body>
+<!--<from mothod="post" action="">-->
+<table id="table" border="1" align="center" cellspacing="0" cellpadding="0">
+    <tr>
+        <th width="70px">编号</th>
+        <th width="70px">姓名</th>
+        <th width="70px">年龄</th>
+    </tr>
+    <a  href="adduser.html">添加</a>
+</table>
+<!--</from>-->
+</body>
+</html>
